@@ -1,0 +1,197 @@
+/* --- RESET PADRÃO --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte moderna de sistemas */
+    background: #F2F4F7; 
+}
+
+/* 1. Container Principal Centralizado */
+.rodape-container { 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    position: relative;
+    width: 100%; 
+    max-width: 1200px;
+    margin: 20px auto; /* Centraliza o sistema e afasta um pouco do topo do navegador */
+    height: auto;
+}
+
+/* 2. Barra do Topo Escura (Visual Premium e Organizado) */
+.start-quare {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 24px;
+    width: 100%; 
+    height: 60px; 
+    background: #0F172A; /* Ajustado para um tom azul escuro mais moderno */
+    color: #F2F4F7;
+    border-radius: 8px 8px 0 0; /* Cantos arredondados suavizados em cima */
+}
+
+.texto-logo {
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+
+/* Informações da Operadora à Direita */
+.marca-loja {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 12px;
+    color: #94A3B8; /* Cinza claro discreto */
+    font-size: 14px;
+    width: auto;
+    height: auto;
+}
+
+/* Barra do Rodapé/Frente Verde Fina */
+.start-quare1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 35px;            
+    background: #16765B;      
+    padding: 0px 24px;       
+    gap: 25px;               
+    list-style: none;        
+    color: #E6F4EA;
+    font-size: 13px;         
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.frente-caixa {
+    width: 1px;
+    height: 16px;
+    background-color: rgba(255,255,255,0.2); 
+}
+
+/* --- NOVO CONTAINER PARA ALINHAMENTO LADO A LADO --- */
+.conteudo-principal {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 24px;
+    margin-top: 20px;
+    align-items: stretch; /* Faz as duas colunas terem a mesma altura */
+}
+
+/* 3. Caixa da Imagem Ampliada (Ocupa o meio esquerdo do sistema) */
+.caixa-imagem {
+    background-image: url('imagem-supermercado.jpg'); 
+    background-size: cover;       
+    background-position: center;   
+    background-repeat: no-repeat; 
+    width: 50%; /* Ocupa metade do espaço horizontal */
+    min-height: 420px; 
+    border-radius: 8px;
+    border: 1px solid #E2E8F0;
+    margin-top: 0; /* Alinhado dinamicamente com o container */
+}
+
+/* 4. Área de Vendas Reformulada (Grade Lateral Profissional à Direita) */
+.campos-venda {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column; /* Elementos empilhados verticalmente de forma limpa */
+    padding: 24px; 
+    gap: 16px;
+    width: 50%; /* Ocupa a outra metade do espaço horizontal */
+    height: auto;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    margin-top: 0; 
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.titulo-painel {
+    font-size: 14px;
+    font-weight: 700;
+    color: #475569;
+    text-transform: uppercase;
+    border-bottom: 1px solid #E2E8F0;
+    padding-bottom: 8px;
+    margin-bottom: 4px;
+}
+
+/* Estilização Moderna dos Inputs */
+.campos-venda input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid #CBD5E1;
+    border-radius: 6px;
+    font-size: 15px;
+    color: #1E293B;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.campos-venda input:focus {
+    border-color: #0F172A; /* Destaca a borda ao selecionar o campo */
+}
+
+/* Botão Industrial de Finalização */
+#finalizar-compra {
+    width: 100%;
+    padding: 14px;
+    background: #10B981; /* Verde comercial de sucesso/finalização */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#finalizar-compra:hover {
+    background: #059669;
+}
+
+/* Mensagem de Validação do Sistema */
+#campo-mensagem {
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* --- DISPLAY DO PREÇO FINAL (MUITO MAIOR E IMPONENTE) --- */
+.display-total {
+    background: #0F172A; /* Caixa preta contrastante para exibir o preço */
+    padding: 16px;
+    border-radius: 6px;
+    text-align: center;
+    margin-top: auto; /* Joga o display de pagamento sempre para a base da caixa */
+}
+
+.label-total {
+    font-size: 11px;
+    font-weight: 700;
+    color: #64748B;
+    letter-spacing: 1px;
+}
+
+#preco-final {
+    font-size: 38px; /* Tamanho massivo para visualização rápida do operador */
+    font-weight: 800;
+    color: #10B981; /* O valor gerado pelo JS aparecerá neste verde brilhante */
+    margin-top: 4px;
+}
+

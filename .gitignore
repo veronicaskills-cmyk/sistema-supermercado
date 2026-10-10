@@ -1,0 +1,15 @@
+
+# Arquivos confidenciais
+.env
+.env.*
+!.env.example
+
+# Dependências e arquivos temporários
+node_modules/
+*.log
+.DS_Store
+Thumbs.db
+
+# Arquivos temporários do editor
+*.swp
+*.tmp

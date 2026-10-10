@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     
+    <title>Caixa de Supermercado</title>
+
+    <!--ligar css ao html-->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Container que envelopa todo o sistema -->
+    <footer class="rodape-container">
+        
+        <!-- Topo Principal (Alinhado profissionalmente) -->
+        <div class="start-quare">
+            <span class="texto-logo">🛒 Mercado Loja 1 - Centro</span>  
+            <p class="marca-loja">🟢 Caixa Aberto 10/10/2026 - 16:00 | Operadora: Ana Silva</p>
+        </div>
+
+        <!-- Faixa Verde Fina Secundária -->
+        <div class="start-quare1">
+            <span>Frente de caixa</span>
+            <p class="frente-caixa"></p>
+        </div>
+  
+        <!-- BLOCO CENTRAL: Organiza a Imagem à Esquerda e os Inputs/Grade à Direita -->
+        <div class="conteudo-principal">
+            
+            <!-- Caixa da Imagem Ampliada -->
+            <div class="caixa-imagem"></div>
+            
+            <!-- Caixa de Vendas e Resultado (Grade Lateral) -->
+            <div class="campos-venda">
+                <div class="titulo-painel">Painel de Operações</div>
+                
+                <!-- Inputs do Sistema -->
+                <input type="number" id="valor-produto" placeholder="Digite o Valor (R$)...">
+                <input type="text" id="cupom-desconto" placeholder="Adicione seu cupom de desconto">
+                
+                <button id="finalizar-compra">Finalizar Compra</button>
+                
+                <!-- Mensagens de Erro/Aviso e Resultado Final com Destaque Máximo -->
+                <p id="campo-mensagem"></p>
+                <div class="display-total">
+                    <span class="label-total">TOTAL A PAGAR</span>
+                    <p id="preco-final">R$ 0,00</p>
+                </div>
+            </div>
+
+        </div>
+
+    </footer>
+    
+    <!--ligar javascript ao html-->
+    <script src="script.js"></script> 
+</body>
+</html>
