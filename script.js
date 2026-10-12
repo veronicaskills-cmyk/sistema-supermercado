@@ -5,18 +5,22 @@ const botao = document.getElementById("finalizar-compra");
 const texto = document.getElementById("preco-final");
 const mensagem = document.getElementById("campo-mensagem");
 
+// Formata valores como moeda brasileira
+function formatarMoeda(valor) {
+    return Number(valor).toLocaleString('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+    });
+}
+
 function regrasDeNegocio() {
     // Captura dos valores atuais dos inputs
     let valor = valorProduto.value;
     let textoCupom = cupom.value.trim(); // Mantém como texto para ler "DEZ"
-    let inicio = "R$ 0,00";
 
-    // Cláusulas de Guarda (validações de segurança)
+   // Validação: campo vazio ou valor igual a zero
     if (valor.trim() === "" || +valor === 0) {
-        let inicioFormatado = inicio.toLocaleString('pt-BR', { 
-        style: 'currency', 
-        currency: 'BRL' });
-
+        let inicioFormatado = formatarMoeda(0);
         texto.textContent = inicioFormatado;
         texto.style.color = "red";
         mensagem.textContent = "Digite um valor diferente de 0";
@@ -24,10 +28,9 @@ function regrasDeNegocio() {
         return;
     }
 
+    // Validação: valores acima do limite ou negativos
     if (+valor > 10000 ||  +valor < 0) {
-        let inicioFormatado = inicio.toLocaleString('pt-BR', { 
-        style: 'currency', 
-        currency: 'BRL' });
+        let inicioFormatado = formatarMoeda(0);
         texto.textContent = inicioFormatado;
         texto.style.color = "red";
         mensagem.textContent = "Valores negativos ou acima de R$ 10.000 não é permitido.";
@@ -35,12 +38,9 @@ function regrasDeNegocio() {
         return;
     }
 
-    //verificar o preço antes de aceitar o cupom
+     // Validação: compra mínima para o cupom DEZ
     if (+valor < 10 && textoCupom === "DEZ") {
-        let preco = Number(document.getElementById("valor-produto").value);
-        let precoFormatado = preco.toLocaleString('pt-BR', { 
-        style: 'currency', 
-        currency: 'BRL' })
+        let precoFormatado = formatarMoeda(valor);
         texto.textContent = precoFormatado;
         texto.style.color = "red";
         mensagem.textContent = "Cupom exige compra mínima de R$ 10"
@@ -48,22 +48,17 @@ function regrasDeNegocio() {
         return;   
     }
 
-    // 3. Lógica do Cupom (Testando a palavra "DEZ")
+     // Aplicação do cupom
     if (textoCupom === "DEZ") {
         let cupomDeDesconto = +valor - 10;
-        let precoFormatado =  cupomDeDesconto.toLocaleString('pt-BR', { 
-        style: 'currency', 
-        currency: 'BRL' })
+        let precoFormatado = formatarMoeda(cupomDeDesconto);
         texto.textContent =  precoFormatado;
         texto.style.color = "#10B981"; // Verde sucesso
         mensagem.textContent = "Cupom DEZ aplicado";
         mensagem.style.color = "green"; // Verde sucesso
 
     } else if (textoCupom === ""){
-        let preco = Number(document.getElementById("valor-produto").value);
-        let precoFormatado =  preco.toLocaleString('pt-BR', { 
-        style: 'currency', 
-        currency: 'BRL' })
+        let precoFormatado = formatarMoeda(valor);
         texto.textContent = precoFormatado;
         texto.style.color = "white";
         mensagem.textContent = "Nenhum cupom aplicado";
@@ -72,10 +67,7 @@ function regrasDeNegocio() {
         
    } else {
         // Se o cupom for inválido ou vazio, mostra o preço normal
-        let preco = Number(document.getElementById("valor-produto").value);
-        let precoFormatado =  preco.toLocaleString('pt-BR', { 
-        style: 'currency', 
-        currency: 'BRL' })
+        let precoFormatado = formatarMoeda(valor);
         texto.textContent = precoFormatado;
         texto.style.color = "white";
         mensagem.textContent = "Cupom inválido";
