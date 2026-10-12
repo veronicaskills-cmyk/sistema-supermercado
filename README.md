@@ -60,7 +60,7 @@ O HTML deve conter os elementos com os IDs `valor-produto`, `cupom-desconto`, `f
 
 ## 👩‍💻 Autora
 
-**Veronica**
+**Veronica Batista**
 
 Estudante de Gestão da Tecnologia da Informação, com interesse em desenvolvimento de software e aprimoramento contínuo das habilidades técnicas.
 
