@@ -1,5 +1,9 @@
 # 🛒 Sistema de Caixa de Supermercado
 
+## 📸 Demonstração do sistema
+
+![Tela do Sistema de Caixa de Supermercado](tela-sistema.png)
+
 Aplicação web desenvolvida com **HTML5, CSS3 e JavaScript**, com foco na implementação de regras de negócio, validação de valores e aplicação de cupom de desconto em uma simulação de compra.
 
 ## 📌 Sobre o projeto
